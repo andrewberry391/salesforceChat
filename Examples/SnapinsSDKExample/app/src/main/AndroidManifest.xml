@@ -36,16 +36,8 @@
         </activity>
         <activity android:name="com.salesforce.snapinssdkexample.activities.VersionActivity" />
         <activity
-            android:name="com.salesforce.snapinssdkexample.activities.settings.KnowledgeSettingsActivity"
-            android:label="@string/title_activity_knowledge_settings"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name="com.salesforce.snapinssdkexample.activities.settings.ChatSettingsActivity"
             android:label="@string/title_activity_chat_settings"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.salesforce.snapinssdkexample.activities.settings.CaseSettingsActivity"
-            android:label="@string/title_activity_case_settings"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 

@@ -9,15 +9,6 @@
     <!-- ======================================================================================= -->
     <!-- ========================== DEFAULT CONFIGURATION VALUES =============================== -->
     <!-- ======================================================================================= -->
-    <!-- Default Knowledge Configuration Values -->
-    <string name="pref_kb_data_category_group_default">groupDefault</string>
-    <string name="pref_kb_root_data_category_default">categoryDefault</string>
-
-    <!-- Cases Default Config Values -->
-    <string name="pref_case_community_url_default">http://communityUrl.default</string>
-    <string name="pref_case_action_name_default_no_auth">caseActionNameNoAuthDefault</string>
-    <string name="pref_case_action_name_default_auth">CaseActionNameAuthDefault</string>
-    <string name="pref_case_list_name_default">caseListNameDefault</string>
 
     <!-- Chat Default Config Values -->
     <string name="pref_chat_la_pod_default">d.la4-c1-ia4.salesforceliveagent.com</string>
@@ -34,10 +25,7 @@
     <string name="account_type">com.salesforce.snapinssdkexample</string>
 
     <!-- Menu -->
-    <string name="action_sos_settings">SOS Settings</string>
-    <string name="action_kb_settings">Knowledge Settings</string>
     <string name="action_chat_settings">Chat Settings</string>
-    <string name="action_case_settings">Case Settings</string>
     <string name="action_version_page">SDK Versions</string>
     <string name="action_check_chat_agent_availability">Check Chat Agent Availability</string>
     <string name="action_check_sos_agent_availability">Check SOS Agent Availability</string>
@@ -45,39 +33,20 @@
     <!-- Versions Activity -->
     <string name="sos_version_label">SOS Version</string>
     <string name="chat_version_label">Chat Version</string>
-    <string name="kb_version_label">Knowledge Version</string>
-    <string name="cases_version_label">Cases Version</string>
     <string name="common_version_label">Common Version</string>
 
     <!-- Main Activity -->
-    <string name="launch_kb">Launch Knowledge</string>
     <string name="launch_chat">Launch Chat</string>
-    <string name="launch_cases">Launch Cases</string>
     <string name="login">Login</string>
     <string name="logout">Logout</string>
-    <string name="title_activity_knowledge_settings">KnowledgeSettingsActivity</string>
-    <string name="knowledge_description_title">Knowledge</string>
-    <string name="knowledge_description_text">This feature gives you access to your org’s knowledge base. Once you point your app to your community URL with the right category group and root data
-                                              category, you can display your knowledge base to your users.</string>
     <string name="chat_description_title">Chat</string>
-    <string name="chat_description_text">This feature gives you access to chat. Once you add the config settings to this app, you can chat with an agent or a chatbot.</string>
-    <string name="case_description_title">Case</string>
-    <string name="case_description_text">This feature gives you access to your cases.</string>
+    <string name="chat_description_text">This feature gives you access to chat. Once you add the config settings to this app, you can chat with an agent or a chatbot. Please make sure you check the chat settings in the top left before chatting if this is your first time!</string>
     <string name="authentication_description_title">Authentication</string>
     <string name="authentication_description_text">Use Knowledge or Cases as an authenticated or unauthenticated user</string>
 
     <!-- Support FAB -->
-    <string name="menu_case">Create Case</string>
     <string name="menu_chat">Live Agent Chat</string>
     <string name="menu_sos">SOS Video Chat</string>
-
-    <!-- Knowledge Settings -->
-    <string name="pref_kb_community_url_title">Community URL</string>
-    <string name="pref_kb_community_url_summary">The URL for the community under which to search for articles</string>
-    <string name="pref_kb_data_category_group_title">Data Category Group</string>
-    <string name="pref_kb_data_category_group_summary">The Data Category Group to use</string>
-    <string name="pref_kb_root_data_category_title">Root Data Category</string>
-    <string name="pref_kb_root_data_category_summary">The data category to show when first launching Knowledge UI</string>
 
     <!-- SOS Settings -->
     <string name="pref_sos_pod_url_title">Pod Url</string>
@@ -101,15 +70,6 @@
     <string name="pref_sos_agent_on_summary">Enables all Open Tok communications</string>
     <string name="pref_sos_agent_on_title">Enable OpenTok</string>
     <string name="sos_agent_availability_change_message">SOS Agent Availability: %1$s</string>
-
-    <!-- Cases Settings -->
-    <string name="pref_case_community_url_summary">Community URL</string>
-    <string name="pref_case_community_url_title">The case community to use</string>
-    <string name="pref_case_action_name_summary">Action Name</string>
-    <string name="pref_case_action_name_title">Global Action to use</string>
-    <string name="pref_case_endpoint_setting_title">Org settings</string>
-    <string name="pref_case_list_name_summary">List Name</string>
-    <string name="pref_case_list_name_title">The Case List to display</string>
 
     <!-- Chat Settings -->
     <string name="pref_chat_endpoint_setting_title">Live Agent Settings</string>
@@ -138,7 +98,6 @@
     <string name="pref_title_override_logging_pod">Override Logging Pod?</string>
     <string name="pref_title_logging_pod">Logging Pod</string>
     <string name="title_activity_chat_settings">ChatSettingsActivity</string>
-    <string name="title_activity_case_settings">CaseSettingsActivity</string>
     <string name="pref_chat_prechat_title">Pre Chat Settings</string>
     <string name="pref_chat_prechat_enabled_title">Pre Chat Enabled?</string>
     <string name="pref_chatbot_banner_enabled_title">ChatBot Banner Enabled</string>
