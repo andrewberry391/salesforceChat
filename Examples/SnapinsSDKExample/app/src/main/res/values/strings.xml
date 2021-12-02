@@ -20,10 +20,10 @@
     <string name="pref_case_list_name_default">caseListNameDefault</string>
 
     <!-- Chat Default Config Values -->
-    <string name="pref_chat_la_pod_default">chatPodUrlDefault</string>
-    <string name="pref_chat_org_id_default">chatOrgIdDefault</string>
-    <string name="pref_chat_deployment_id_default">chatDeploymentIdDefault</string>
-    <string name="pref_chat_button_id_default">chatButtonIdDefault</string>
+    <string name="pref_chat_la_pod_default">d.la4-c1-ia4.salesforceliveagent.com</string>
+    <string name="pref_chat_org_id_default">00D5f000006NFMV</string>
+    <string name="pref_chat_deployment_id_default">5725f0000009MMG</string>
+    <string name="pref_chat_button_id_default">5735f0000009Mtf</string>
     <!-- ======================================================================================= -->
     <!-- ======================== END DEFAULT CONFIGURATION VALUES ============================= -->
     <!-- ======================================================================================= -->
