@@ -39,7 +39,7 @@
     <PreferenceCategory
         android:title="@string/pref_chat_prechat_title">
         <CheckBoxPreference
-            android:defaultValue="false"
+            android:defaultValue="@string/pref_prechat_enabled_default"
             android:key="pref_chat_prechat_enabled"
             android:title="@string/pref_chat_prechat_enabled_title"/>
 
