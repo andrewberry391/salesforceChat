@@ -18,7 +18,7 @@ object Utils {
     }
 
     fun getStringPref(context: Context, key: String, default: String): String {
-        return PreferenceManager.getDefaultSharedPreferences(context).getString(key, default)
+        return PreferenceManager.getDefaultSharedPreferences(context).getString(key, default)!!
     }
 
     fun getBooleanPref(context: Context, key:String): Boolean {

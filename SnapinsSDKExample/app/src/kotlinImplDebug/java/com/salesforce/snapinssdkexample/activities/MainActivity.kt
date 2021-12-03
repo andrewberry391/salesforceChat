@@ -15,20 +15,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.salesforce.android.chat.core.ChatCore
 import com.salesforce.android.chat.core.model.AvailabilityState
-import com.salesforce.android.knowledge.ui.KnowledgeUI
-import com.salesforce.android.knowledge.ui.KnowledgeUIClient
 import com.salesforce.android.service.common.analytics.ServiceAnalytics
 import com.salesforce.android.service.common.utilities.control.Async
-import com.salesforce.android.sos.api.SosAvailability
 import com.salesforce.androidsdk.app.SalesforceSDKManager
 import com.salesforce.androidsdk.rest.RestClient
 import com.salesforce.snapinssdkexample.ChatLauncher
 import com.salesforce.snapinssdkexample.R
-import com.salesforce.snapinssdkexample.SupportHomeViewAddition
-import com.salesforce.snapinssdkexample.activities.settings.CaseSettingsActivity
 import com.salesforce.snapinssdkexample.activities.settings.ChatSettingsActivity
-import com.salesforce.snapinssdkexample.activities.settings.KnowledgeSettingsActivity
-import com.salesforce.snapinssdkexample.activities.settings.SosSettingsActivity
 import com.salesforce.snapinssdkexample.utils.ServiceSDKUtils
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -37,13 +30,10 @@ import kotlin.reflect.KClass
 /**
  * Main test activity supporting basic functionality:
  * <ul>
- *     <li>Launching Knowledge UI {@link SupportHomeViewAddition}</li>
  *     <li>Authentication (Logging in or out)</li>
  * </ul>
  */
-class MainActivity : AppCompatActivity(), SosAvailability.Listener {
-    private var mKnowledgeUI: KnowledgeUI? = null
-    private var mKnowledgeUIClient: KnowledgeUIClient? = null
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,10 +47,6 @@ class MainActivity : AppCompatActivity(), SosAvailability.Listener {
 
     override fun onDestroy() {
         super.onDestroy()
-
-        // Clean up SOS
-        if (SosAvailability.isPolling()) SosAvailability.stopPolling()
-        SosAvailability.removeListener(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -70,24 +56,11 @@ class MainActivity : AppCompatActivity(), SosAvailability.Listener {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_sos_settings -> startActivityFor(SosSettingsActivity::class)
-            R.id.action_kb_settings -> startActivityFor(KnowledgeSettingsActivity::class)
             R.id.action_chat_settings -> startActivityFor(ChatSettingsActivity::class)
-            R.id.action_case_settings -> startActivityFor(CaseSettingsActivity::class)
             R.id.action_version_page -> startActivityFor(VersionActivity::class)
             R.id.action_check_chat_agent_availability -> showLiveAgentChatAvailability()
-            R.id.action_check_sos_agent_availability -> showSosAgentAvailability()
             else -> super.onOptionsItemSelected(item)
         }
-    }
-
-    /**
-     * Called when the SOS availability status changes
-     */
-    override fun onSosAvailabilityChange(status: SosAvailability.Status?) {
-        Toast.makeText(this,
-                String.format(getString(R.string.sos_agent_availability_change_message), status?.name),
-                Toast.LENGTH_SHORT).show()
     }
 
     fun startActivityFor(activityClass: KClass<out AppCompatActivity>): Boolean {
@@ -112,30 +85,11 @@ class MainActivity : AppCompatActivity(), SosAvailability.Listener {
         return true
     }
 
-    private fun showSosAgentAvailability(): Boolean {
-        Toast.makeText(this,
-                String.format(getString(R.string.sos_agent_availability_change_message),
-                        SosAvailability.getStatus().name),
-                Toast.LENGTH_SHORT).show()
-        return true
-    }
-
     /**
      * Initializes configurations and listeners which should happen at startup.
      */
     private fun initializeServiceSDK() {
         setupServiceSDKListeners()
-
-        initKnowledge()
-        initSosAvailabilityListener()
-    }
-
-    /**
-     * Adds listeners for SOS.
-     */
-    private fun initSosAvailabilityListener() {
-        SosAvailability.addListener(this)
-        ServiceSDKUtils.startSosPolling(applicationContext)
     }
 
     /**
@@ -153,22 +107,9 @@ class MainActivity : AppCompatActivity(), SosAvailability.Listener {
      * Adds click listeners to the main activity buttons.
      */
     private fun setupButtons() {
-        knowledge_launch_button.setOnClickListener { launchKnowledge() }
         chat_launch_button.setOnClickListener({ startChat() })
         login_button.setOnClickListener({ login() })
         logout_button.setOnClickListener({ logout() })
-    }
-
-    /**
-     * Initializes Knowledge and adds the view addition.
-     */
-    private fun initKnowledge() {
-        if (mKnowledgeUI == null) {
-            // Create the KnowledgeUI Configuration
-            mKnowledgeUI = ServiceSDKUtils.getKnowledgeUI(applicationContext, ServiceSDKUtils.getAuthenticatedUser())
-            // Add the view addition
-            mKnowledgeUI?.viewAddition(SupportHomeViewAddition())
-        }
     }
 
     /**
@@ -177,30 +118,6 @@ class MainActivity : AppCompatActivity(), SosAvailability.Listener {
     private fun startChat() {
         val chat = ChatLauncher()
         chat.launchChat(this)
-    }
-
-    /**
-     * Launches the Knowledge View Addition.
-     */
-    private fun launchKnowledge() {
-        if (mKnowledgeUIClient == null) {
-            // Create a client asynchronously
-            mKnowledgeUI?.createClient(this)?.onResult { _, uiClient ->
-                run {
-                    // Store reference to the Knowledge UI client
-                    mKnowledgeUIClient = uiClient
-
-                    // Handle the close action
-                    uiClient.addOnCloseListener {
-                        // Clear the reference to the Knowledge UI client
-                        mKnowledgeUIClient = null
-                    }
-
-                    // Launch the UI
-                    uiClient.launchHome(this)
-                }
-            }
-        }
     }
 
     /**
