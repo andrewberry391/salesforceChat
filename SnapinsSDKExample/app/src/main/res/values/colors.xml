@@ -7,7 +7,29 @@
  */
 -->
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#2872CC</color>
+    <color name="colorPrimaryDark">#005AC7</color>
+    <color name="colorAccent">#ff00b3</color>
+<!--    <color name="salesforce_brand_primary">#4A90E2</color> &lt;!&ndash; Line under message the client's typing &ndash;&gt;-->
+<!--    <color name="salesforce_brand_secondary">#FFFFFF</color> &lt;!&ndash; Client text bubbles &ndash;&gt;-->
+<!--    <color name="salesforce_contrast_inverted">#000000</color> &lt;!&ndash; Color of the close button on the minimized view. Client message text. Background color at the bottom of the input bar on the chat feed UI. &ndash;&gt;-->
+<!--    <color name="salesforce_contrast_primary">#FFFFFF</color> &lt;!&ndash; Agent text color, pre chat input and prompt text color &ndash;&gt;-->
+<!--    <color name="salesforce_contrast_secondary">#000000</color> &lt;!&ndash; Pre chat input text and underline color &ndash;&gt;-->
+<!--    <color name="salesforce_contrast_quaternary">#C0C0C0</color> &lt;!&ndash; Chat background &ndash;&gt;-->
+<!--    <color name="salesforce_title_color">#4A90E2</color> &lt;!&ndash; Agent text bubble &ndash;&gt;-->
+    <color name="salesforce_toolbar">#005AC7</color> <!-- Chat tab bar -->
+    <color name="salesforce_toolbar_inverted">#FCFCFC</color> <!-- Toolbar text -->
+    <color name="salesforce_brand_primary">#2872CC</color> <!-- Top bar background and agent bubble person background -->
+    <color name="salesforce_brand_secondary">#2872CC</color>
+<!--    <color name="salesforce_brand_contrast">#FCFCFC</color>-->
+<!--    <color name="salesforce_contrast_primary">#000000</color>-->
+<!--    <color name="salesforce_contrast_secondary">#6D6D6D</color>-->
+<!--    <color name="salesforce_contrast_tertiary">#BABABA</color>-->
+<!--    <color name="salesforce_contrast_quaternary">#F1F1F1</color>-->
+<!--    <color name="salesforce_contrast_inverted">#FFFFFF</color>-->
+<!--    <color name="salesforce_feedback_primary">#E74C3C</color>-->
+<!--    <color name="salesforce_feedback_secondary">#2ECC71</color>-->
+<!--    <color name="salesforce_feedback_tertiary">#F5A623</color>-->
+<!--    <color name="salesforce_title_color">#FBFBFB</color>-->
+<!--    <color name="salesforce_overlay">#000000</color>-->
 </resources>
